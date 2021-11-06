@@ -12,6 +12,9 @@
         public static bool IfPlate(string tag) {
             return tag == PLATE;
         }
+        public static bool IfPlateAcceptor(string tag) {
+            return tag == PLATE_ACCEPTOR;
+        }
         public static bool IfFloor(string tag) {
             return tag == FLOOR;
         }

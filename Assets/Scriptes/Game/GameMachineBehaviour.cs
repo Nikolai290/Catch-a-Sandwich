@@ -1,4 +1,5 @@
-﻿using Assets.Scriptes.Sandwich;
+﻿using Assets.Scriptes.Garbage;
+using Assets.Scriptes.Sandwich;
 using Assets.Scriptes.Spawner;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace Assets.Scriptes.Game {
         private void Start() {
             SandwichBehaviour.OnScoreUp += ScoreUpHandler;
             SandwichBehaviour.OnLosing += LosingHandler;
+            GarbageBehaviour.OnCollisionPlate += LosingHandler;
         }
 
         public void NewGame() {

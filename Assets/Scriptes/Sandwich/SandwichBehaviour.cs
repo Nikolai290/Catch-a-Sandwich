@@ -23,12 +23,14 @@ namespace Assets.Scriptes.Sandwich {
             breadBehaviour = GetComponentInChildren<BreadBehaviour>();
             butterBehaviour.OnCollisionPlateOrFloor += SetLose;
             breadBehaviour.OnCollisionPlate += SetWin;
+            breadBehaviour.OnCollisionFloor += SetLose;
         }
 
         public void SetLose(bool lose) {
-            this.lose = lose;
-            StartCoroutine(Losing());
-
+            if (!this.lose) {
+                this.lose = lose;
+                StartCoroutine(Losing());
+            }
         }
 
         public void SetWin(bool win) {

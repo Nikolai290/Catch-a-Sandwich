@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnDiapazon: {x: 0, y: 0, z: 0}
   sanwichPrefabs:
-  - {fileID: 264964792582980287, guid: d7366d18ada19b24a9fbd6c0bfca13dc, type: 3}
+  - {fileID: 392313445614040743, guid: 9a342f5fa295bc94da8c5e0aee9c53f1, type: 3}
   garbagePrefabs: []
   busterPrefabs: []

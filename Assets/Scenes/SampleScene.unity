@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2235997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,11 +986,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Spacebar for start game
-
-    Arrays for control
-
-    Escape for exit'
+  m_Text: "\u041B\u043E\u0432\u0438 \u0431\u0443\u0442\u0435\u0440\u044B \u043D\u0430\u0447\u0438\u043D\u043A\u043E\u0439
+    \u0432\u0432\u0435\u0440\u0445\n\u041D\u0435 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0439
+    \u0438\u043C \u043F\u0430\u0434\u0430\u0442\u044C \u043D\u0430 \u043F\u043E\u043B\n\u041D\u0435
+    \u043B\u043E\u0432\u0438 \u0432\u0441\u044F\u043A\u0438\u0439 \u043C\u0443\u0441\u043E\u0440"
 --- !u!222 &512322890
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1500,7 +1499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &654361107
 RectTransform:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4337279256345870440}
   - component: {fileID: 4337279256345870445}
   - component: {fileID: 4337279256345870444}
+  - component: {fileID: -1150826816132422553}
   m_Layer: 0
   m_Name: Garbage
   m_TagString: Garbage
@@ -91,7 +92,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4337279256345870743}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8f3ac39a6d0e3754d9f1badb8d0c9917, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -125,4 +126,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f2876c35db885468d96ed6659a1fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallObjcetParams: {fileID: 11400000, guid: d05308a06b9aa2945a8e624494b930c2, type: 2}
+  param: {fileID: 11400000, guid: d05308a06b9aa2945a8e624494b930c2, type: 2}
+--- !u!114 &-1150826816132422553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337279256345870743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9ac922f91ef994280953f51362faf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

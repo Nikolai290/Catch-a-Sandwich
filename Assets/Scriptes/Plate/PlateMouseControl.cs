@@ -5,9 +5,7 @@ namespace Assets.Scriptes.Plate {
         [SerializeField] private PlateParams plateParams;
 
         private void OnMouseDrag() {
-            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var offset = transform.position - mousePosition;
-            var nextPosition = mousePosition - offset;
+            var nextPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             nextPosition.z = transform.position.z;
             transform.position = Vector3.MoveTowards(
                     transform.position,

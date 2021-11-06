@@ -11,7 +11,10 @@ namespace Assets.Scriptes.Sandwich {
             if (Tags.IfPlateOrFloor(other.gameObject.tag)) {
                 OnCollisionPlateOrFloor?.Invoke(true);
             }
-        }
 
+            if(other.gameObject.tag != Tags.SANDWICH) {
+                gameObject.AddComponent<Rigidbody>();
+            }
+        }
     }
 }

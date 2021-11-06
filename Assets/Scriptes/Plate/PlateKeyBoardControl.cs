@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scriptes.Plate {
-    public class PlateBehaviour : MonoBehaviour {
+    public class PlateKeyBoardControl : MonoBehaviour {
 
         [SerializeField] private PlateParams plateParams;
 

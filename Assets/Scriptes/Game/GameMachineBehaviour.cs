@@ -1,6 +1,8 @@
 ﻿using Assets.Scriptes.Sandwich;
 using Assets.Scriptes.Spawner;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,8 @@ namespace Assets.Scriptes.Game {
         [SerializeField] private SpawnerBehaviour spawnerBehaviour;
         [SerializeField] private Text ScoreText;
         [SerializeField] private Text LoserText;
+        [SerializeField] private GameObject InGameHud;
+        [SerializeField] private GameObject PauseMenu;
 
         [SerializeField] private GameMachineParams gameMachineParams;
 
@@ -20,20 +24,30 @@ namespace Assets.Scriptes.Game {
 
         private float sumChance;
 
+        private List<GameObject> spawnedObjects = new List<GameObject>();
+
         private void Start() {
-
-            LoserText.text = $"Loses: {Loses}";
-
             SandwichBehaviour.OnScoreUp += ScoreUpHandler;
             SandwichBehaviour.OnLosing += LosingHandler;
         }
 
-        private void Update() {
-            if (Input.GetKeyDown(KeyCode.Space) && !playGame) {
-                // start game
-                playGame = true;
-                StartCoroutine(GameCycle());
-            }
+        public void NewGame() {
+            InGameHud.SetActive(true);
+            Loses = 0;
+            Scores = 0;
+            LoserText.text = $"Loses: {Loses}";
+            LoserText.text = $"Scores: {Loses}";
+            Play();
+        }
+
+        private void Play() {
+            playGame = true;
+            StartCoroutine(GameCycle());
+        }
+
+        public void StopGame() {
+            playGame = false;
+            CleanSpawnedObjectList();
         }
 
         private IEnumerator GameCycle() {
@@ -49,20 +63,32 @@ namespace Assets.Scriptes.Game {
             }
         }
 
+        private void CleanSpawnedObjectList() {
+            spawnedObjects.ForEach(x => { 
+                if(x != null) {
+                    Destroy(x);
+                }
+            });
+            spawnedObjects = new List<GameObject>();
+        }
+
         private void SpawnObject(float chance) {
             var sandwichGarbage = gameMachineParams.sandwichSpawnChance + gameMachineParams.garbageSpawnChance;
             if (chance < gameMachineParams.sandwichSpawnChance) {
                 var spawnedObject = spawnerBehaviour.SpawnSandwich();
+                spawnedObjects.Add(spawnedObject);
                 return;
             }
             if (chance >= gameMachineParams.sandwichSpawnChance
              && chance < sandwichGarbage) {
                 var spawnedObject = spawnerBehaviour.SpawnGarbage();
+                spawnedObjects.Add(spawnedObject);
                 return;
             }
             if (chance >= sandwichGarbage
              && chance < sumChance) {
                 var spawnedObject = spawnerBehaviour.SpawnBuster();
+                spawnedObjects.Add(spawnedObject);
                 return;
             }
         }

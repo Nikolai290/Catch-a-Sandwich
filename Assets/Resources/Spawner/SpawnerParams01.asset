@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76ca86948661074aa66c539af1bb9d8, type: 3}
+  m_Name: SpawnerParams01
+  m_EditorClassIdentifier: 
+  spawnDiapazon: {x: 10, y: 0, z: 0.5}
+  sanwichPrefabs:
+  - {fileID: 264964792582980287, guid: cdec66d258ef273468a3c043f3ff0b5a, type: 3}
+  garbagePrefabs:
+  - {fileID: 4337279256345870743, guid: 3fe81039caa226b42b1917281021ab61, type: 3}
+  busterPrefabs: []

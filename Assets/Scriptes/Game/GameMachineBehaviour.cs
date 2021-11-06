@@ -1,17 +1,20 @@
-﻿using Assets.Scriptes.Garbage;
+﻿using Assets.Scriptes.Common;
+using Assets.Scriptes.Garbage;
 using Assets.Scriptes.Sandwich;
 using Assets.Scriptes.Spawner;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scriptes.Game {
     public class GameMachineBehaviour : MonoBehaviour {
         [SerializeField] private SpawnerBehaviour spawnerBehaviour;
         [SerializeField] private Text ScoreText;
         [SerializeField] private Text LoserText;
+        [SerializeField] private Text TimerText;
         [SerializeField] private GameObject InGameHud;
         [SerializeField] private GameObject PauseMenu;
         [SerializeField] private Transform PlateControl;
@@ -20,14 +23,19 @@ namespace Assets.Scriptes.Game {
         [SerializeField] private GameMachineParams gameMachineParams;
 
         public int maxLoses;
-        private int Loses;
+        public int Loses { get; private set; }
         public int Scores { get; private set; }
+        public MyTime TimeResult { get; private set; }
 
-
+        
         public bool playGame { get; private set; }
         private bool coroutineStarted = false;
 
         private float sumChance;
+
+        private float startTime;
+        private float stopTime;
+
 
         private List<GameObject> spawnedObjects = new List<GameObject>();
 
@@ -49,13 +57,26 @@ namespace Assets.Scriptes.Game {
 
         private void Play() {
             playGame = true;
+            startTime = Time.realtimeSinceStartup;
+            TimeResult = new MyTime(0);
             if (coroutineStarted) return;
             coroutineStarted = true;
+            StartCoroutine(Timer());
             StartCoroutine(GameCycle());
+        }
+
+        private IEnumerator Timer() {
+            while (playGame) {
+                yield return new WaitForSeconds(1f);
+                var currentTime = Time.realtimeSinceStartup;
+                var time = currentTime - startTime;
+                TimerText.text = "t: " + TimeResult.Set(time).ToString();
+            }
         }
 
         public void StopGame() {
             playGame = false;
+            stopTime = Time.realtimeSinceStartup;
             CleanSpawnedObjectList();
         }
 

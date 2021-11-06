@@ -11,7 +11,7 @@ namespace Assets.Scriptes.Sandwich {
             if (Tags.IfPlate(other.gameObject.tag)) {
                 OnCollisionPlate?.Invoke(true);
             }
-            if (Tags.IfFloor(other.gameObject.tah)) {
+            if (Tags.IfFloor(other.gameObject.tag)) {
                 OnCollisionFloor?.Invoke();
             }
 
@@ -19,7 +19,7 @@ namespace Assets.Scriptes.Sandwich {
 
         private void OnTriggerExit(Collider other) {
             if (Tags.IfPlate(other.gameObject.tag)) {
-                OnCollisionPlate?.Invoke(false);
+                OnCollisionFloor?.Invoke();
             }
 
         }

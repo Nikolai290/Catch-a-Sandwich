@@ -13,6 +13,8 @@ namespace Assets.Scriptes.Game {
         [SerializeField] private Text LoserText;
         [SerializeField] private GameObject InGameHud;
         [SerializeField] private GameObject PauseMenu;
+        [SerializeField] private Transform PlateControl;
+        [SerializeField] private Transform PlateDefaultPostion;
 
         [SerializeField] private GameMachineParams gameMachineParams;
 
@@ -20,7 +22,9 @@ namespace Assets.Scriptes.Game {
         private int Loses;
         public int Scores { get; private set; }
 
-        private bool playGame = false;
+
+        public bool playGame { get; private set; }
+        private bool coroutineStarted = false;
 
         private float sumChance;
 
@@ -32,6 +36,7 @@ namespace Assets.Scriptes.Game {
         }
 
         public void NewGame() {
+            PlateControl.position = PlateDefaultPostion.position;
             InGameHud.SetActive(true);
             Loses = 0;
             Scores = 0;
@@ -42,6 +47,8 @@ namespace Assets.Scriptes.Game {
 
         private void Play() {
             playGame = true;
+            if (coroutineStarted) return;
+            coroutineStarted = true;
             StartCoroutine(GameCycle());
         }
 

@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using Assets.Scriptes.Game;
+using UnityEngine;
 
 namespace Assets.Scriptes.UI {
     public class UiActionHandlers : MonoBehaviour {
         private bool pause;
 
-
         [SerializeField] private GameObject InGameUi;
         [SerializeField] private GameObject PauseMenu;
+        [SerializeField] private GameMachineBehaviour gameMachine;
 
         private void Update() {
             if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -15,15 +16,20 @@ namespace Assets.Scriptes.UI {
         }
 
         public void EscapeMenuHandler() {
-            if (pause) {
-                ResumeButtonClickHandler();
-                InGameUi.SetActive(true);
-                PauseMenu.SetActive(false);
+            if (gameMachine.playGame) {
+                if (pause) {
+                    ResumeButtonClickHandler();
+                    InGameUi.SetActive(true);
+                    PauseMenu.SetActive(false);
+                } else {
+                    PauseButtonClickHandler();
+                    InGameUi.SetActive(false);
+                    PauseMenu.SetActive(true);
+                }
             } else {
-                PauseButtonClickHandler();
-                InGameUi.SetActive(false);
-                PauseMenu.SetActive(true);
+                ExitApplicationHandler();
             }
+
         }
 
         public void PauseButtonClickHandler() {

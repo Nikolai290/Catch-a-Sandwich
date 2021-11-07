@@ -5434,8 +5434,7 @@ MonoBehaviour:
   FinishScreen: {fileID: 377648325}
   PlateControl: {fileID: 675373482}
   PlateDefaultPostion: {fileID: 476956387}
-  gameMachineParams: {fileID: 11400000, guid: 97a88543c5364b44fac11caf994dd7c3, type: 2}
-  maxLoses: 5
+  gameMachineParams: {fileID: 11400000, guid: f2e6aca1f5142e44094047b82de6495c, type: 2}
 --- !u!1 &2068974311
 GameObject:
   m_ObjectHideFlags: 0

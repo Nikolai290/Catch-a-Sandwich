@@ -82,7 +82,6 @@ namespace Assets.Scriptes.Game {
         }
 
         public void StopGame() {
-            Time.timeScale = 0;
             PlateControl.gameObject.SetActive(false);
             playGame = false;
             stopTime = Time.realtimeSinceStartup;

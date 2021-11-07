@@ -21,7 +21,8 @@ namespace Assets.Scriptes.UI.MainMenu {
         }
 
         public void ShowMenu() {
-            if(sandwichMenu is null) {
+            Time.timeScale = 1;
+            if (sandwichMenu is null) {
                 sandwichMenu = spawner.SpawnSandwich();
             } else {
                 sandwichMenu.SetActive(true);
@@ -33,6 +34,7 @@ namespace Assets.Scriptes.UI.MainMenu {
         }
 
         public void ToGame() {
+            Time.timeScale = 1;
             mainCamera.orthographicSize = gameCameraSize;
             mainCamera.transform.position = gameCameraPosition;
             sandwichMenu.SetActive(false);

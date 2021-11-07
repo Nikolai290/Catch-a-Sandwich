@@ -2,7 +2,7 @@
 using Assets.Scriptes.Garbage;
 using Assets.Scriptes.Sandwich;
 using Assets.Scriptes.Spawner;
-using System;
+using Assets.Scriptes.UI.FinishScreen;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +16,7 @@ namespace Assets.Scriptes.Game {
         [SerializeField] private Text LoserText;
         [SerializeField] private Text TimerText;
         [SerializeField] private GameObject InGameHud;
-        [SerializeField] private GameObject PauseMenu;
-        [SerializeField] private GameObject FinishScreen;
+        [SerializeField] private FinishScreenBahaviour FinishScreen;
         [SerializeField] private Transform PlateControl;
         [SerializeField] private Transform PlateDefaultPostion;
 
@@ -48,6 +47,8 @@ namespace Assets.Scriptes.Game {
         }
 
         public void NewGame() {
+            Time.timeScale = 1;
+            PlateControl.gameObject.SetActive(true);
             PlateControl.position = PlateDefaultPostion.position;
             InGameHud.SetActive(true);
 
@@ -72,30 +73,40 @@ namespace Assets.Scriptes.Game {
         }
 
         private IEnumerator Timer() {
-            while (playGame) {
+            while (coroutineStarted) {
                 yield return new WaitForSeconds(0.01f);
+                if (!playGame) continue;
                 stopTime = Time.realtimeSinceStartup;
                 TimerText.text = "t: " + TimeResult.Set(totalTimeResult).ToString();
             }
         }
 
-        public void FinishGame() {
+        public void StopGame() {
+            Time.timeScale = 0;
+            PlateControl.gameObject.SetActive(false);
             playGame = false;
             stopTime = Time.realtimeSinceStartup;
             CleanSpawnedObjectList();
+        }
+
+        public void FinishGame() {
+            StopGame();
             //Показать экран результатов и записать их
+            FinishScreen.Show(Scores, totalTimeResult);
         }
 
         private IEnumerator GameCycle() {
-            while (playGame) {
+            while (coroutineStarted) {
+                var scatter = gameMachineParams.spawnIntervalScatter;
+                var interval = gameMachineParams.spawnInterval + Random.Range(-scatter, scatter);
+                yield return new WaitForSeconds(interval);
+                if (!playGame) continue;
                 sumChance = gameMachineParams.sandwichSpawnChance
                           + gameMachineParams.garbageSpawnChance
                           + gameMachineParams.busterSpawnChance;
                 var chance = Random.Range(0, sumChance);
                 SpawnObject(chance);
-                var scatter = gameMachineParams.spawnIntervalScatter;
-                var interval = gameMachineParams.spawnInterval + Random.Range(-scatter, scatter);
-                yield return new WaitForSeconds(interval);
+
             }
         }
 

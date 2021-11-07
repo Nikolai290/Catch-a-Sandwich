@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 362266603949270010}
   m_Layer: 0
   m_Name: Fork
-  m_TagString: Untagged
+  m_TagString: Garbage.metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f2876c35db885468d96ed6659a1fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  param: {fileID: 11400000, guid: d05308a06b9aa2945a8e624494b930c2, type: 2}
+  param: {fileID: 11400000, guid: 46b89c561ee98cc4f9ed73db16653790, type: 2}
 --- !u!114 &2955291756097473913
 MonoBehaviour:
   m_ObjectHideFlags: 0

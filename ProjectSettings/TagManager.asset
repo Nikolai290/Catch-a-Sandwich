@@ -9,6 +9,8 @@ TagManager:
   - Floor
   - Garbage
   - PlateAcceptor
+  - Garbage.metal
+  - Garbage.Brick
   layers:
   - Default
   - TransparentFX

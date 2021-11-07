@@ -8,18 +8,26 @@ namespace Assets.Scriptes.Garbage {
         public static Action OnCollisionPlate;
         public float collisionStayTimeout;
 
-        private bool lose = false;
+        private bool destroing = false;
 
         private void OnTriggerEnter(Collider other) {
             if (Tags.IfPlateAcceptor(other.gameObject.tag)) {
                 Lose();
             }
+            if (Tags.IfFloor(other.gameObject.tag)) {
+                DestoyMe();
+            }
         }
 
         private void Lose() {
-            if (lose) return;
-            lose = true;
+            if (destroing) return;
+            destroing = true;
             OnCollisionPlate?.Invoke();
+            StartCoroutine(Destroing());
+        }
+        private void DestoyMe() {
+            if (destroing) return;
+            destroing = true;
             StartCoroutine(Destroing());
         }
 

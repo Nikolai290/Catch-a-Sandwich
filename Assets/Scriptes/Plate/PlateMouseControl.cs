@@ -10,7 +10,7 @@ namespace Assets.Scriptes.Plate {
             transform.position = Vector3.MoveTowards(
                     transform.position,
                     nextPosition,
-                    plateParams.speed * 3 * Time.deltaTime
+                    plateParams.speed * 5 * Time.deltaTime
                 );
             
         }

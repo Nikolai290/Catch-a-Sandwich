@@ -17,6 +17,7 @@ namespace Assets.Scriptes.Game {
         [SerializeField] private Text TimerText;
         [SerializeField] private GameObject InGameHud;
         [SerializeField] private GameObject PauseMenu;
+        [SerializeField] private GameObject FinishScreen;
         [SerializeField] private Transform PlateControl;
         [SerializeField] private Transform PlateDefaultPostion;
 
@@ -35,6 +36,7 @@ namespace Assets.Scriptes.Game {
 
         private float startTime;
         private float stopTime;
+        private float totalTimeResult => stopTime - startTime;
 
 
         private List<GameObject> spawnedObjects = new List<GameObject>();
@@ -48,16 +50,20 @@ namespace Assets.Scriptes.Game {
         public void NewGame() {
             PlateControl.position = PlateDefaultPostion.position;
             InGameHud.SetActive(true);
+
             Loses = 0;
             Scores = 0;
+            startTime = Time.realtimeSinceStartup;
+
             LoserText.text = $"Loses: {Loses}";
-            LoserText.text = $"Scores: {Loses}";
+            ScoreText.text = $"Scores: {Loses}";
+            TimerText.text = "t: 00:00:00";
+
             Play();
         }
 
         private void Play() {
             playGame = true;
-            startTime = Time.realtimeSinceStartup;
             TimeResult = new MyTime(0);
             if (coroutineStarted) return;
             coroutineStarted = true;
@@ -67,17 +73,17 @@ namespace Assets.Scriptes.Game {
 
         private IEnumerator Timer() {
             while (playGame) {
-                yield return new WaitForSeconds(1f);
-                var currentTime = Time.realtimeSinceStartup;
-                var time = currentTime - startTime;
-                TimerText.text = "t: " + TimeResult.Set(time).ToString();
+                yield return new WaitForSeconds(0.01f);
+                stopTime = Time.realtimeSinceStartup;
+                TimerText.text = "t: " + TimeResult.Set(totalTimeResult).ToString();
             }
         }
 
-        public void StopGame() {
+        public void FinishGame() {
             playGame = false;
             stopTime = Time.realtimeSinceStartup;
             CleanSpawnedObjectList();
+            //Показать экран результатов и записать их
         }
 
         private IEnumerator GameCycle() {
@@ -128,6 +134,7 @@ namespace Assets.Scriptes.Game {
             LoserText.text = $"Loses: {Loses}";
             if(Loses >= maxLoses) {
                 LoserText.text = $"You are LOSER!! ^_^ {Loses}";
+                FinishGame();
             }
         }
 

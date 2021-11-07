@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115764c76f70b0446897f24009143429, type: 3}
   m_Name: PlateParams01
   m_EditorClassIdentifier: 
-  MinBorder: {x: -5, y: 5}
-  MaxBorder: {x: 5, y: 15}
+  MinBorder: {x: -12, y: -2}
+  MaxBorder: {x: 12, y: 11}
   speed: 7
   PlatePrefab: {fileID: 0}

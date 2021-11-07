@@ -27,7 +27,11 @@ namespace Assets.Scriptes.Common {
         }
 
         public override string ToString() {
-            return $"{minutes.ToString()}:{seconds}:{milliseconds}";
+            return $"{IntToString(minutes)}:{IntToString(seconds)}:{IntToString(milliseconds)}";
+        }
+
+        private string IntToString(int number) {
+            return number < 1 ? "00" : number < 10 ? "0" + number : number.ToString();
         }
     }
 }

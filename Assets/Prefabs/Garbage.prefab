@@ -152,4 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ca3c8cb56be944cb517a95dc6a5854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionStayTimeout: 1
+  collisionStayTimeout: 2

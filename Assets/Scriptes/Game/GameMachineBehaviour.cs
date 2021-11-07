@@ -92,6 +92,7 @@ namespace Assets.Scriptes.Game {
         public void FinishGame() {
             StopGame();
             //Показать экран результатов и записать их
+            InGameHud.SetActive(false);
             FinishScreen.Show(Scores, totalTimeResult);
         }
 

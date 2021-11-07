@@ -6,9 +6,9 @@ namespace Assets.Scriptes.UI {
 
         private Text text;
         private void Start() {
-            text = GetComponent<Text>();
+            text = GetComponentInChildren<Text>();
         }
-        private void OnMouseUp() {
+        public void HideTextButtonActionHandler() {
             text.enabled = !text.enabled;
         }
     }

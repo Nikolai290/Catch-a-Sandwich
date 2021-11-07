@@ -27,7 +27,7 @@ namespace Assets.Scriptes.Common {
         }
 
         public override string ToString() {
-            return $"{minutes}:{seconds}:{milliseconds}";
+            return $"{minutes.ToString()}:{seconds}:{milliseconds}";
         }
     }
 }

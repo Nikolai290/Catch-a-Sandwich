@@ -55,9 +55,9 @@ namespace Assets.Scriptes.Game {
             Scores = 0;
             startTime = Time.realtimeSinceStartup;
 
-            LoserText.text = $"Loses: {Loses}";
-            ScoreText.text = $"Scores: {Loses}";
-            TimerText.text = "t: 00:00:00";
+            LoserText.text = Loses.ToString();
+            ScoreText.text = Scores.ToString();
+            TimerText.text = "00:00:00";
 
             Play();
         }
@@ -76,7 +76,7 @@ namespace Assets.Scriptes.Game {
                 yield return new WaitForSeconds(0.01f);
                 if (!playGame) continue;
                 stopTime = Time.realtimeSinceStartup;
-                TimerText.text = "t: " + TimeResult.Set(totalTimeResult).ToString();
+                TimerText.text = TimeResult.Set(totalTimeResult).ToString();
             }
         }
 
@@ -141,16 +141,15 @@ namespace Assets.Scriptes.Game {
 
         private void LosingHandler() {
             Loses += 1;
-            LoserText.text = $"Loses: {Loses}";
+            LoserText.text = Loses.ToString();
             if(Loses >= gameMachineParams.loseLimit) {
-                LoserText.text = $"You are LOSER!! ^_^ {Loses}";
                 FinishGame();
             }
         }
 
         private void ScoreUpHandler() {
             Scores += 1;
-            ScoreText.text = $"Scores: {Scores}";
+            ScoreText.text = Scores.ToString();
         }
     }
 }

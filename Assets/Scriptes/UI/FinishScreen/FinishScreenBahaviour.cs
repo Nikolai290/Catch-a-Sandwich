@@ -18,8 +18,8 @@ namespace Assets.Scriptes.UI.FinishScreen {
         public void Show(int score, float time) {
             OnFinishGame?.Invoke();
             FinishScreen.SetActive(true);
-            finalScore.text = "Your scores: " + score;
-            finalTime.text = "Your time: " + new MyTime(time).ToString();
+            finalScore.text = score.ToString();
+            finalTime.text = new MyTime(time).ToString();
             joke.text = jokes.jokes[Random.Range(0, jokes.jokes.Length)];
         }
     }

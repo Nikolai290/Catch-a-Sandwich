@@ -5,21 +5,25 @@ using UnityEngine;
 namespace Assets.Scriptes {
     public class AudioPlayer : MonoBehaviour {
 
-        [SerializeField] private AudioSource DropOnPlate;
-        [SerializeField] private AudioSource FinishGame;
+        [SerializeField] private AudioSource[] DropOnPlate;
+        [SerializeField] private AudioSource[] FinishGame;
 
         private void Start() {
             PlateBehaviour.OnSomthingPlantedOnPlate += PlayDropOnPlate;
             FinishScreenBahaviour.OnFinishGame += PlayFinishGame;
+            FloorBehaviour.OnDropToFloor += PlayDropOnPlate;
         }
 
         private void PlayDropOnPlate() {
-            DropOnPlate.pitch = Random.Range(0.9f, 1.1f);
-            DropOnPlate.Play();
+            var voice = DropOnPlate[Random.Range(0, DropOnPlate.Length)];
+            voice.pitch = Random.Range(0.9f, 1.1f);
+            voice.Play();
         }
         private void PlayFinishGame() {
-            FinishGame.pitch = Random.Range(0.9f, 1.1f);
-            FinishGame.Play();
+            var voice = FinishGame[Random.Range(0, FinishGame.Length)];
+            voice.pitch = Random.Range(0.9f, 1.1f);
+            voice.Play();
         }
+
     }
 }

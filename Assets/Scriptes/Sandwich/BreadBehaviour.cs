@@ -4,18 +4,21 @@ using UnityEngine;
 namespace Assets.Scriptes.Sandwich {
     public class BreadBehaviour : MonoBehaviour {
 
-        public Action<bool> OnCollisionPlateOrFloor;
+        public Action<bool> OnCollisionPlate;
+        public Action<bool> OnCollisionFloor;
 
         private void OnTriggerEnter(Collider other) {
             if (Tags.IfPlate(other.gameObject.tag)) {
-                OnCollisionPlateOrFloor?.Invoke(true);
-            } 
-
+                OnCollisionPlate?.Invoke(true);
+            }
+            if (Tags.IfFloor(other.gameObject.tag)) {
+                OnCollisionFloor?.Invoke(true);
+            }
         }
 
         private void OnTriggerExit(Collider other) {
-            if (Tags.IfPlateOrFloor(other.gameObject.tag)) {
-                OnCollisionPlateOrFloor?.Invoke(false);
+            if (Tags.IfPlate(other.gameObject.tag)) {
+                OnCollisionPlate?.Invoke(false);
             }
 
         }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a0373ccd4232646a0fc99b01fcb2b2, type: 3}
+  m_Name: ForkKnife
+  m_EditorClassIdentifier: 
+  xRotate: 1
+  yRotate: 0
+  zRotate: 0
+  randomTorque: 1
+  maxTorque: 20
+  minTorque: 40
+  Torque: {x: 0, y: 0, z: 0}
+  randomFallSpeed: 1
+  maxFallSpeed: 500
+  minFallSpeed: 300
+  fallSpeed: 0

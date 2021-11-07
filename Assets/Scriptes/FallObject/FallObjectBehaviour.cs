@@ -3,43 +3,35 @@
 namespace Assets.Scriptes.FallObject {
     public class FallObjectBehaviour : MonoBehaviour {
 
-        [SerializeField] private FallObjectParams fallObjcetParams;
+        [SerializeField] protected FallObjectParams param;
 
-        private Rigidbody rb;
+        protected Rigidbody rb;
 
         private void Start() {
-            var fallSpeed = fallObjcetParams.fallSpeed;
-            if (fallObjcetParams.randomFallSpeed) {
-                fallSpeed = Random.Range(fallObjcetParams.minFallSpeed, fallObjcetParams.maxFallSpeed);
+            var fallSpeed = param.fallSpeed;
+            if (param.randomFallSpeed) {
+                fallSpeed = Random.Range(param.minFallSpeed, param.maxFallSpeed);
             }
-            var torque = fallObjcetParams.Torque;
-            if (fallObjcetParams.randomTorque) {
-                torque = Random.Range(fallObjcetParams.minTorque, fallObjcetParams.maxTorque);
+            var torque = param.Torque;
+            if (param.randomTorque) {
+                torque = new Vector3(
+                        param.xRotate ? GetRandomFloat() : 0,
+                        param.yRotate ? GetRandomFloat() : 0,
+                        param.zRotate ? GetRandomFloat() : 0
+                    );
             }
-
             rb = GetComponent<Rigidbody>();
-            rb.AddRelativeTorque(
-                Random.Range(0f, 1f) > 0.5f ? torque : -torque,
-                0f,
-                0f
-            );
+            rb.AddRelativeTorque(torque);
             rb.AddForce(Vector3.down * fallSpeed);
+        }
+
+        public float GetRandomFloat() {
+            var torque = Random.Range(param.minTorque, param.maxTorque);
+            return Random.Range(0f, 1f) > 0.5f ? torque : -torque;
         }
 
         private void OnCollisionEnter(Collision collision) {
             rb.useGravity = true;
-        }
-
-        private void OnTriggerEnter(Collider other) {
-            if (other.gameObject.tag == Tags.PLATE_ACCEPTOR) {
-                transform.parent = other.transform;
-            }
-        }
-
-        private void OnTriggerExit(Collider other) {
-            if (other.gameObject.tag == Tags.PLATE_ACCEPTOR) {
-                transform.parent = null;
-            }
         }
     }
 }

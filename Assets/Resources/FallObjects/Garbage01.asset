@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a0373ccd4232646a0fc99b01fcb2b2, type: 3}
   m_Name: Garbage01
   m_EditorClassIdentifier: 
+  xRotate: 1
+  yRotate: 1
+  zRotate: 1
   randomTorque: 1
   maxTorque: 10
   minTorque: 25
-  Torque: 0
+  Torque: {x: 0, y: 0, z: 0}
   randomFallSpeed: 1
   maxFallSpeed: 400
   minFallSpeed: 100

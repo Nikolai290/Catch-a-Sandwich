@@ -9,5 +9,7 @@ namespace Assets.Scriptes.Game {
         public float sandwichSpawnChance;
         public float garbageSpawnChance;
         public float busterSpawnChance;
+
+        public int loseLimit;
     }
 }

@@ -22,13 +22,15 @@ namespace Assets.Scriptes.Sandwich {
             butterBehaviour = GetComponentInChildren<ButterBehaviour>();
             breadBehaviour = GetComponentInChildren<BreadBehaviour>();
             butterBehaviour.OnCollisionPlateOrFloor += SetLose;
-            breadBehaviour.OnCollisionPlateOrFloor += SetWin;
+            breadBehaviour.OnCollisionPlate += SetWin;
+            breadBehaviour.OnCollisionFloor += SetLose;
         }
 
         public void SetLose(bool lose) {
-            this.lose = lose;
-            StartCoroutine(Losing());
-
+            if (!this.lose) {
+                this.lose = lose;
+                StartCoroutine(Losing());
+            }
         }
 
         public void SetWin(bool win) {
@@ -40,7 +42,7 @@ namespace Assets.Scriptes.Sandwich {
 
         private IEnumerator Losing() {
             OnLosing?.Invoke();
-            yield return new WaitForSeconds(collisionStayTimeout);
+            yield return new WaitForSeconds(collisionStayTimeout * 2);
             Destroy(gameObject);
         }
         private IEnumerator Winning() {

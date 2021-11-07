@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Garbage01
   m_EditorClassIdentifier: 
   xRotate: 1
-  yRotate: 0
-  zRotate: 0
+  yRotate: 1
+  zRotate: 1
   randomTorque: 1
   maxTorque: 10
   minTorque: 25

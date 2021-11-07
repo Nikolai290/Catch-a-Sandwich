@@ -22,7 +22,6 @@ namespace Assets.Scriptes.Game {
 
         [SerializeField] private GameMachineParams gameMachineParams;
 
-        public int maxLoses;
         public int Loses { get; private set; }
         public int Scores { get; private set; }
         public MyTime TimeResult { get; private set; }
@@ -143,7 +142,7 @@ namespace Assets.Scriptes.Game {
         private void LosingHandler() {
             Loses += 1;
             LoserText.text = $"Loses: {Loses}";
-            if(Loses >= maxLoses) {
+            if(Loses >= gameMachineParams.loseLimit) {
                 LoserText.text = $"You are LOSER!! ^_^ {Loses}";
                 FinishGame();
             }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76ca86948661074aa66c539af1bb9d8, type: 3}
   m_Name: SpawnerParams01
   m_EditorClassIdentifier: 
-  spawnDiapazon: {x: 3, y: 0, z: 0.5}
+  spawnDiapazon: {x: 12, y: 0, z: 0.5}
   sanwichPrefabs:
   - {fileID: 7053107828888128173, guid: 3b530d6371cb5ac48be4ff52fde14b1b, type: 3}
   - {fileID: 7053107828888128173, guid: 33bd05287dc9e034a8063bba805f369c, type: 3}

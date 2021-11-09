@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 115764c76f70b0446897f24009143429, type: 3}
-  m_Name: PlateParams01
+  m_Name: AndroidPlateParams
   m_EditorClassIdentifier: 
-  MinBorder: {x: -12, y: -7}
-  MaxBorder: {x: 12, y: 7}
-  speed: 7
+  MinBorder: {x: -4.5, y: -4}
+  MaxBorder: {x: 4.5, y: 10}
+  speed: 10
   PlatePrefab: {fileID: 0}

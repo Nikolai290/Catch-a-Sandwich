@@ -8,10 +8,7 @@ namespace Assets.Scriptes.UI.MainMenu {
         [SerializeField] BackgroundBehaviour background;
         [SerializeField] Camera mainCamera;
         [SerializeField] GameObject MainMenu;
-        private float menuCameraSize = 2;
-        private float gameCameraSize = 9;
-        private Vector3 menuCameraPosition = new Vector3(0, 31, -15);
-        private Vector3 gameCameraPosition = new Vector3(0, 5, -27);
+        [SerializeField] MenuParams menuParams;
 
         private GameObject sandwichMenu;
 
@@ -29,14 +26,14 @@ namespace Assets.Scriptes.UI.MainMenu {
             }
             background.gameObject.SetActive(true);
             background.moving = true;
-            mainCamera.orthographicSize = menuCameraSize;
-            mainCamera.transform.position = menuCameraPosition;
+            mainCamera.orthographicSize = menuParams.menuCameraSize;
+            mainCamera.transform.position = menuParams.menuCameraPosition;
         }
 
         public void ToGame() {
             Time.timeScale = 1;
-            mainCamera.orthographicSize = gameCameraSize;
-            mainCamera.transform.position = gameCameraPosition;
+            mainCamera.orthographicSize = menuParams.gameCameraSize;
+            mainCamera.transform.position = menuParams.gameCameraPosition;
             sandwichMenu.SetActive(false);
             background.gameObject.SetActive(false);
         }

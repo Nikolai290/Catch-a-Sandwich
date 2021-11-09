@@ -16,10 +16,10 @@ MonoBehaviour:
   yRotate: 0
   zRotate: 0
   randomTorque: 1
-  maxTorque: 25
-  minTorque: 15
+  maxTorque: 30
+  minTorque: 20
   Torque: {x: 0, y: 0, z: 0}
   randomFallSpeed: 1
   maxFallSpeed: 100
-  minFallSpeed: 300
+  minFallSpeed: 200
   fallSpeed: 0

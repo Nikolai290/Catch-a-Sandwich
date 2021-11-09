@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2c29a6da0e6dd4588d3670bf6fa2a4, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  spawnInterval: 2
-  spawnIntervalScatter: 1
-  sandwichSpawnChance: 70
-  garbageSpawnChance: 30
+  spawnInterval: 1.8
+  spawnIntervalScatter: 0.5
+  sandwichSpawnChance: 50
+  garbageSpawnChance: 50
   busterSpawnChance: 0
-  loseLimit: 5
+  loseLimit: 10

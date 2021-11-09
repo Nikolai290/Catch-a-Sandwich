@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AndroidMenuParams
   m_EditorClassIdentifier: 
   menuCameraSize: 2.5
-  gameCameraSize: 9
+  gameCameraSize: 13
   menuCameraPosition: {x: 0, y: 31, z: -15}
-  gameCameraPosition: {x: 0, y: 5, z: -27}
+  gameCameraPosition: {x: 0, y: 9, z: -27}

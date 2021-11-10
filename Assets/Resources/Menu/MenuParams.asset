@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ad38b1bc90a314e9045b415926f3c1, type: 3}
   m_Name: MenuParams
   m_EditorClassIdentifier: 
-  Backgrounds: []
-  Speed: 1
+  menuCameraSize: 2.5
+  gameCameraSize: 9
+  menuCameraPosition: {x: 0, y: 31, z: -15}
+  gameCameraPosition: {x: 0, y: 5, z: -27}

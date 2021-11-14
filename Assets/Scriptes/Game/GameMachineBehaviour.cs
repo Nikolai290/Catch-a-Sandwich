@@ -40,6 +40,7 @@ namespace Assets.Scriptes.Game {
         private List<GameObject> spawnedObjects = new List<GameObject>();
 
         private void Start() {
+            PlateControl.gameObject.SetActive(false);
             SandwichBehaviour.OnScoreUp += ScoreUpHandler;
             SandwichBehaviour.OnLosing += LosingHandler;
             GarbageBehaviour.OnCollisionPlate += LosingHandler;

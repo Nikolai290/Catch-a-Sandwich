@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scriptes.Game;
+using UnityEngine;
 
 namespace Assets.Scriptes.FallObject {
     public class FallObjectBehaviour : MonoBehaviour {
@@ -7,10 +8,14 @@ namespace Assets.Scriptes.FallObject {
 
         protected Rigidbody rb;
 
+        private int difficultLevel;
+
         private void Start() {
+            ApplyDifficultLevel();
             var fallSpeed = param.fallSpeed;
             if (param.randomFallSpeed) {
-                fallSpeed = Random.Range(param.minFallSpeed, param.maxFallSpeed);
+                fallSpeed = Random.Range(param.minFallSpeed, param.maxFallSpeed)
+                    + (param.fallSpeedLevelUpStep * difficultLevel);
             }
             var torque = param.Torque;
             if (param.randomTorque) {
@@ -20,13 +25,23 @@ namespace Assets.Scriptes.FallObject {
                         param.zRotate ? GetRandomFloat() : 0
                     );
             }
+
             rb = GetComponent<Rigidbody>();
             rb.AddRelativeTorque(torque);
             rb.AddForce(Vector3.down * fallSpeed);
         }
 
+        private void ApplyDifficultLevel() {
+            if (gameObject.tag == Tags.SANDWICH) {
+                difficultLevel = GameMachineBehaviour.SandwichDifficultLevel;
+            } else {
+                difficultLevel = GameMachineBehaviour.GarbageDifficultLevel;
+            }
+        }
+
         public float GetRandomFloat() {
-            var torque = Random.Range(param.minTorque, param.maxTorque);
+            var torque = Random.Range(param.minTorque, param.maxTorque)
+                + (param.torqueLevelUpStep * difficultLevel);
             return Random.Range(0f, 1f) > 0.5f ? torque : -torque;
         }
 

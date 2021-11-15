@@ -23,3 +23,5 @@ MonoBehaviour:
   maxFallSpeed: 500
   minFallSpeed: 300
   fallSpeed: 0
+  torqueLevelUpStep: 3
+  fallSpeedLevelUpStep: 30

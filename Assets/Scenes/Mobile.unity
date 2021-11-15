@@ -9883,8 +9883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2813899c61008e4a9b08a7e0d1a5ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMusicVolume: 0.3
-  defaultEffectsVolume: 0.6
   musicSlider: {fileID: 1949662687}
   effectsSlider: {fileID: 910638231}
   audioSettingsPanel: {fileID: 603626302}
@@ -13075,6 +13073,7 @@ MonoBehaviour:
   PlateControl: {fileID: 675373482}
   PlateDefaultPostion: {fileID: 476956387}
   gameMachineParams: {fileID: 11400000, guid: f2e6aca1f5142e44094047b82de6495c, type: 2}
+  difficultParams: {fileID: 11400000, guid: e7e20f0ef742f8f4584e65da848992dc, type: 2}
 --- !u!1 &2041497016
 GameObject:
   m_ObjectHideFlags: 0

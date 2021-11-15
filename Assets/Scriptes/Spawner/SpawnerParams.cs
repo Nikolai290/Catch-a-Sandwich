@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scriptes.Spawner {
-    [CreateAssetMenu(fileName = "SpawnerParams01", menuName = "SpawnerParams", order = 0)]
+    [CreateAssetMenu(fileName = "SpawnerParams01", menuName = "SandwichGame/SpawnerParams", order = 0)]
     public class SpawnerParams : ScriptableObject {
         public Vector3 spawnDiapazon;
 

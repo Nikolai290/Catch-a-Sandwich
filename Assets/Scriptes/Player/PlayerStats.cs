@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Assets.Scriptes.Player {
-    [CreateAssetMenu(fileName = "PlayerStats", menuName = "PlayerStats", order = 0)]
+    [CreateAssetMenu(fileName = "PlayerStats", menuName = "SandwichGame/PlayerStats", order = 0)]
     public class PlayerStats : ScriptableObject {
         public string FirebaseId { get; private set; }
         public string Name { get; private set; }

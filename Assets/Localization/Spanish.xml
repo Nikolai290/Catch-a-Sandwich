@@ -1,0 +1,13 @@
+<Locale>
+  <text id="1" value="Rompe la Ley del Sándwich!&#xA;Atrapa los sándwiches con el relleno hasta arriba!" />
+  <text id="2" value="No toques!" />
+  <text id="3" value="Música" />
+  <text id="4" value="Efectos" />
+  <text id="5" value="Atrapa los sándwiches que caen hasta la parte superior, esto es importante!&#xA;No atrape otros artículos.&#xA;El juego continúa hasta 10 pérdidas..&#xA;&#xA;la pérdida cuenta si:&#xA;1. El sándwich cae al suelo..&#xA;2. Consigue un bocadillo con relleno por el contrario..&#xA;3. Atrapar un objeto extraño.&#xA;&#xA;Sobrevive el mayor tiempo posible, atrapa la mayor cantidad de sándwiches!&#xA;Controles: mueve el plato arrastrándolo en la pantalla.&#xA;&#xA;No es necesario presionar la placa en sí.&#xA;&#xA;Para iniciar el juego, haga clic en el sándwich en el menú principal.&#xA;" />
+  <text id="6" value="Sándwiches atrapados:" />
+  <text id="7" value="Pérdidas:" />
+  <text id="8" value="Pausa" />
+  <text id="9" value="Gastado..." />
+  <text id="10" value="Su tiempo:" />
+  <text id="11" value="Tabla de clasificación (TODO)" />
+</Locale>

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnInterval: 1.8
   spawnIntervalScatter: 0.5
-  sandwichSpawnChance: 50
-  garbageSpawnChance: 50
+  sandwichSpawnChance: 70
+  garbageSpawnChance: 30
   busterSpawnChance: 0
   loseLimit: 10

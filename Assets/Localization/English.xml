@@ -1,0 +1,13 @@
+<Locale>
+  <text id="1" value="Overcome the law of the sandwich!&#xA;Catch the sandwiches with the filling to the top!" />
+  <text id="2" value="Don't touch!" />
+  <text id="3" value="Music" />
+  <text id="4" value="Effects" />
+  <text id="5" value="Catch falling sandwiches with the filling up, this is important!&#xA;Don't catch other items.&#xA;Game continues until 10 losses.&#xA;&#xA;loss counts if:&#xA;1. The sandwich falls to the floor.&#xA;2. You catch a burger with the filling down.&#xA;3. Catching a foreign object.&#xA;&#xA;Survive as long as possible, catch the most sandwiches!&#xA;Controls: move the plate by dragging on the screen.&#xA;&#xA;It is not necessary to click on the grater itself.&#xA;&#xA;To start the game, click on the sandwich in the main menu.&#xA;" />
+  <text id="6" value="Caught sandwiches:" />
+  <text id="7" value="Loses:" />
+  <text id="8" value="Pause" />
+  <text id="9" value="You are loser..." />
+  <text id="10" value="Your time:" />
+  <text id="11" value="Leaderboards (TODO)" />
+</Locale>
